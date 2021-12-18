@@ -7,18 +7,17 @@ import { publish } from "../redux/actions/publishedPosts";
 import styles from "../styles/modal.module.css";
 
 export default function Modal({ open, formData, onClose }) {
-  if (!open) return null;
-
   const dispatch = useDispatch();
 
   const router = useRouter();
   const handleSubmit = async () => {
-    const response = await publishPosts(formData);
-    if (response.status == 201) {
-      dispatch(publish(response.data));
-      router.push(`/user/publish_success/${response.data._id}`);
-    }
+    const response = await publishPosts(formData).then(
+      dispatch(publish(response.data)).then(
+        router.push(`/user/publish_success/${response.data._id}`)
+      )
+    );
   };
+  if (!open) return null;
 
   return ReactDom.createPortal(
     <>

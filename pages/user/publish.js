@@ -121,14 +121,14 @@ export default function Publish() {
                       ...formData,
                       Category: e.target.value,
                     });
+                    handleChange(
+                      selectedCategory.current.options.selectedIndex
+                    );
                   }}
                   required
                   value={formData.Category}
                   className={styles.postInputBox}
                   ref={selectedCategory}
-                  onChange={() =>
-                    handleChange(selectedCategory.current.options.selectedIndex)
-                  }
                 >
                   {categories.map((category) => {
                     return (

@@ -1,0 +1,22 @@
+.navbar {
+  transform: translateX(-110%);
+  transition: transform 300ms cubic-bezier(1, 0, 0, 1);
+}
+
+.homeactive > .navbar {
+  transform: translateX(0%);
+}
+
+.overlay {
+  position: fixed;
+  width: 100%;
+  height: calc(100vh - 60px);
+  opacity: 0;
+  background-color: rgb(150, 150, 150, 0.5);
+  transition: all 300ms linear;
+  pointer-events: none;
+}
+
+.homeactive > .overlay {
+  opacity: 1;
+}

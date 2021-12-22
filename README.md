@@ -35,4 +35,4 @@ Check out our [Next.js deployment documentation](https://nextjs.org/docs/deploym
 
 Deploy the official Netlify version here:
 
-[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/AidenKwong/Blog-Website.git)
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/AidenKwong/Blog-Website)

@@ -5,9 +5,11 @@ import FileBase from "react-file-base64";
 import styles from "../../styles/user.publish.module.css";
 import websitelogo from "../../public/images/speech-bubble.png";
 
-import { useState, useRef } from "react";
+import { useState, useRef, createContext } from "react";
+import { useDispatch } from "react-redux";
 
 import Modal from "../../components/Modal";
+import { publish } from "../../redux/actions/publishedPosts";
 
 const categories = ["News", "Tech", "Life Styles", "Hobbies"];
 const newsCategories = [
@@ -61,10 +63,38 @@ export default function Publish() {
   const handleChange = (index) => {
     setSelectedCategoryState(index);
   };
-
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsOpen(true);
+  };
+
+  const handleOnPaste = (e) => {
+    e.preventDefault();
+    if (e.clipboardData.files.length > 0) {
+      getBase64(e.clipboardData.files[0]);
+    }
+  };
+  const handleOnDrop = (e) => {
+    e.preventDefault();
+    getBase64(e.dataTransfer.files[0]);
+  };
+
+  const handleUploadImage = (e) => {
+    e.preventDefault();
+    getBase64(e.target.files[0]);
+  };
+  const getBase64 = (file) => {
+    const reader = new FileReader();
+    reader.readAsDataURL(file);
+    reader.onload = () =>
+      setFormData({
+        ...formData,
+        Thumbnail: reader.result,
+      });
+
+    reader.onerror = function (error) {
+      console.log("Error: ", error);
+    };
   };
 
   return (
@@ -113,6 +143,7 @@ export default function Publish() {
                   className={styles.postInputBox}
                 ></input>
               </div>
+
               <div className={styles.postFormItem}>
                 Category
                 <select
@@ -210,16 +241,21 @@ export default function Publish() {
               </div>
               <div className={styles.postFormItem}>
                 Thumbnail
-                <span className={styles.selectFile}>
-                  <FileBase
+                <input
+                  className={styles.selectFile}
+                  placeholder="Drag and drop or paste here"
+                  onPaste={handleOnPaste}
+                  onDrop={handleOnDrop}
+                ></input>
+                <input type="file" onChange={handleUploadImage}></input>
+                {/* <FileBase
                     required
                     type="file"
                     multiple={false}
                     onDone={({ base64 }) =>
                       setFormData({ ...formData, Thumbnail: base64 })
                     }
-                  />
-                </span>
+                  /> */}
               </div>
               <img src={formData.Thumbnail} width="150px"></img>
               <div className={styles.title}>
@@ -274,8 +310,8 @@ export default function Publish() {
             </form>
             <Modal
               open={isOpen}
-              formData={formData}
               onClose={() => setIsOpen(false)}
+              formData={formData}
             />
           </div>
         </div>

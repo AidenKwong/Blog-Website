@@ -48,6 +48,7 @@
   background-color: rgb(245, 245, 245);
   display: flex;
   padding: 14px;
+  justify-content: center;
 }
 
 .instruction {
@@ -58,7 +59,7 @@
 }
 
 .postForm {
-  height: 100%;
+  height: min-content;
   width: 50rem;
   background-color: white;
   box-shadow: 0px 0px 2px 2px rgb(200, 200, 200);
@@ -95,14 +96,25 @@
   margin-left: 1rem;
   outline: 0;
   border: 1px solid #199607;
-  height: 25px;
+  height: auto;
   font-size: medium;
   background-color: rgb(245, 245, 245);
 }
 
 .selectFile {
-  padding-left: 1rem;
-  font-weight: 600;
+  height: auto;
+  padding: 3rem 3rem 5rem 3rem;
+  width: 40%;
+  outline: 0;
+  border: 1px solid #199607;
+  margin: 0 1rem 0 1rem;
+  font-size: medium;
+  background-color: white;
+  text-align: center;
+}
+
+.selectFile::-webkit-input-placeholder {
+  white-space: pre-line;
 }
 
 .postInputBox {

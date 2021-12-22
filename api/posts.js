@@ -1,8 +1,13 @@
 import axios from "axios";
+import { route } from "next/dist/server/router";
+import { useRouter } from "next/router";
 
 const API = axios.create({
   baseURL: "https://blog-website-indevelopment.herokuapp.com",
 });
+// const API = axios.create({
+//   baseURL: "http://localhost:5000/",
+// });
 
 API.interceptors.request.use(
   function (config) {
@@ -18,16 +23,7 @@ API.interceptors.request.use(
   }
 );
 
-export const fetchPosts = async () => {
-  const { data } = await API.get("/posts").catch((error) => console.log(error));
+export const fetchPosts = (page) =>
+  API.get("/posts", { params: { page: page } });
 
-  return data;
-};
-
-export const publishPosts = async (post) => {
-  const data = await API.post("/posts", post).catch((error) =>
-    console.log(error)
-  );
-
-  return data;
-};
+export const publishPost = (newPost) => API.post("/posts", newPost);

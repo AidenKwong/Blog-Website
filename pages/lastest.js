@@ -1,32 +1,29 @@
 import Main from "./main";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, useRef } from "react";
 import { fetchPosts } from "../api/posts";
-import styles from "../styles/postsGrid.module.css";
+
+import PostGrid from "../components/PostGrid/PostGrid";
 
 export default function Lastest() {
   const [posts, setPosts] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [page, setPage] = useState(0);
 
   useEffect(async () => {
     async function fetchData() {
-      const data = await fetchPosts();
-      setPosts(data);
+      const { data } = await fetchPosts(page);
+      setPosts((posts) => {
+        return [...new Set([...posts, ...data])];
+      });
+      setLoading(false);
     }
     fetchData();
-  }, []);
-  console.log(posts);
+  }, [page]);
   return (
     <div>
-      <Main />
-      <div className={styles.postGrid}>
-        {posts.map((post) => (
-          <div className={styles.card} key={post._id}>
-            <img className={styles.thumbnail} src={post.Thumbnail} />
-            <div>{post.Title}</div>
-            <span>{post.Publisher}</span>
-            <span>{new Date(post.publishedAt).toLocaleString()}</span>
-          </div>
-        ))}
-      </div>
+      <Main>
+        <PostGrid posts={posts} setPage={setPage} loading={loading} />
+      </Main>
     </div>
   );
 }

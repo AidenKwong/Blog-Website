@@ -7,7 +7,7 @@ import styles from "../styles/main.module.css";
 
 import React, { useState, useEffect } from "react";
 
-export default function Main() {
+export default function Main({ children }) {
   const [navbar, setNavbar] = useState(false);
   const [fetchedPosts, setFetchedPosts] = useState();
 
@@ -26,9 +26,11 @@ export default function Main() {
     >
       <Topbar navbar={navbar} setNavbar={setNavbar} />
       <div className={styles.overlay} />
+
       <div className={styles.navbar}>
         <Navbar />
       </div>
+      <div className={styles.children}>{children}</div>
     </div>
   );
 }

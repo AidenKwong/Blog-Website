@@ -1,0 +1,42 @@
+.postGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  align-items: start;
+  gap: 1rem;
+  padding: 1rem;
+}
+
+.card {
+  display: grid;
+  background-color: white;
+  box-shadow: 0px 0px 16px rgb(150, 150, 150);
+  border-radius: 1rem;
+  padding: 0.5rem;
+  margin: 0.5rem 0 0.5rem 0;
+  gap: 0.5rem;
+  transition: all 200ms ease-in-out;
+  cursor: pointer;
+}
+
+.card:hover {
+  transform: scale(1.02);
+}
+
+.thumbnail {
+  max-width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+}
+
+.title {
+  font-size: larger;
+  font-weight: 600;
+}
+
+.publisher {
+}
+
+.publishedAt {
+  margin-left: auto;
+  color: rgb(100, 100, 100);
+}

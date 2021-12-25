@@ -99,7 +99,7 @@
 }
 
 .profileMenu {
-  position: absolute;
+  position: fixed;
   right: 0;
   transform: translate(1rem, -50%) scale(0%);
   width: 14rem;

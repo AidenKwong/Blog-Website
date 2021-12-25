@@ -1,4 +1,4 @@
-import Topbar from "../components/Topbar";
+import Topbar from "../components/Topbar/Topbar";
 import Navbar from "../components/Navbar";
 
 import { fetchPosts } from "../api/posts";

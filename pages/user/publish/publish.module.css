@@ -45,7 +45,6 @@
 .mainDiv {
   width: 100%;
   height: calc(100vh - 60px);
-  background-color: rgb(245, 245, 245);
   display: flex;
   padding: 14px;
   justify-content: center;
@@ -111,6 +110,7 @@
   font-size: medium;
   background-color: white;
   text-align: center;
+  caret-color: transparent;
 }
 
 .selectFile::-webkit-input-placeholder {
@@ -149,9 +149,18 @@
   border: 1px solid #199607;
   background-color: rgb(245, 245, 245);
   cursor: pointer;
+  position: relative;
 }
 
-.publishButton:hover {
+.publishButton:hover:disabled::before {
+  content: "please sign in to publish";
+  position: absolute;
+  color: red;
+  transform: translate(0, -50%);
+  background-color: rgb(245, 245, 245, 0.8);
+}
+
+.publishButton:hover:enabled {
   background-color: rgb(235, 235, 235);
 }
 

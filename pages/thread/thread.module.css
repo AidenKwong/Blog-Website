@@ -1,0 +1,52 @@
+.main {
+  padding: 2em;
+  display: grid;
+  gap: 2em;
+}
+
+.goBack {
+  cursor: pointer;
+}
+
+.postContainer {
+  width: 50em;
+  border-radius: 1em;
+  overflow: hidden;
+  box-shadow: 0px 0px 1em rgb(150, 150, 150);
+}
+
+.container {
+  display: grid;
+  gap: 1em;
+
+  background-color: rgb(255, 255, 255, 0.5);
+  backdrop-filter: blur(4rem);
+  padding: 1rem;
+}
+
+.header {
+  padding: 1rem;
+  background-color: white;
+  display: flex;
+  justify-content: space-between;
+  font-weight: 600;
+}
+
+.categories {
+  font-weight: 600;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+}
+
+.publisher {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #199607;
+}
+
+.like {
+  margin-right: 1em;
+}

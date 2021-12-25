@@ -2,6 +2,8 @@ import styles from "./postsGrid.module.css";
 import no_image from "../../public/images/no-image.jpg";
 import moment from "moment";
 import { useCallback, useRef } from "react";
+import Link from "next/link";
+import { useDispatch } from "react-redux";
 
 export default function PostGrid({ posts, setPage, loading }) {
   const observer = useRef();
@@ -18,40 +20,54 @@ export default function PostGrid({ posts, setPage, loading }) {
     },
     [loading]
   );
+
   return (
-    <div className={styles.postGrid}>
-      {posts.map((post, index) => {
-        if (posts.length === index + 1) {
-          return (
-            <div className={styles.card} key={post._id} ref={lastPostRef}>
-              {post.Thumbnail == "" ? (
-                <img src={no_image.src} className={styles.thumbnail} />
-              ) : (
-                <img className={styles.thumbnail} src={post.Thumbnail} />
-              )}
-              <div>{post.Title}</div>
-              <span>{post.Publisher}</span>
-              <span>{new Date(post.publishedAt).toLocaleString()}</span>
-            </div>
-          );
-        } else {
-          return (
-            <div className={styles.card} key={post._id}>
-              {post.Thumbnail == "" ? (
-                <img src={no_image.src} className={styles.thumbnail} />
-              ) : (
-                <img className={styles.thumbnail} src={post.Thumbnail} />
-              )}
-              <div className={styles.title}>{post.Title}</div>
-              <span className={styles.publisher}>{post.Publisher}</span>
-              <span className={styles.publishedAt}>
-                {moment(post.publishedAt).fromNow()}
-              </span>
-            </div>
-          );
-        }
-      })}
-      {loading && <div>Loading...</div>}
+    <div>
+      <div className={styles.postGrid}>
+        {posts.map((post, index) => {
+          if (posts.length === index + 1) {
+            return (
+              <div key={post._id}>
+                <Link href={`/thread/${post._id}`}>
+                  <div className={styles.card} key={post._id} ref={lastPostRef}>
+                    {post.Thumbnail == "" ? (
+                      <img src={no_image.src} className={styles.thumbnail} />
+                    ) : (
+                      <img className={styles.thumbnail} src={post.Thumbnail} />
+                    )}
+                    <div>{post.Title}</div>
+                    <span>{post.Publisher}</span>
+                    <span>{new Date(post.publishedAt).toLocaleString()}</span>
+                  </div>
+                </Link>
+              </div>
+            );
+          } else {
+            return (
+              <div key={post._id}>
+                <Link href={`/thread/${post._id}`}>
+                  <div className={styles.card} key={post._id}>
+                    {post.Thumbnail == "" ? (
+                      <img src={no_image.src} className={styles.thumbnail} />
+                    ) : (
+                      <img className={styles.thumbnail} src={post.Thumbnail} />
+                    )}
+                    <div className={styles.title}>{post.Title}</div>
+                    <span className={styles.publisher}>{post.Publisher}</span>
+                    <span className={styles.subcategory}>
+                      {post.Subcategory}
+                    </span>
+                    <span className={styles.publishedAt}>
+                      {moment(post.publishedAt).fromNow()}
+                    </span>
+                  </div>
+                </Link>
+              </div>
+            );
+          }
+        })}
+        {loading && <div>Loading...</div>}
+      </div>
     </div>
   );
 }

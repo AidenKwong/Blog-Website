@@ -18,6 +18,10 @@
   cursor: pointer;
 }
 
+.row_span_2 {
+  grid-row: span 2 / auto;
+}
+
 .card:hover {
   transform: scale(1.02);
 }
@@ -29,14 +33,24 @@
 }
 
 .title {
-  font-size: larger;
+  font-size: 1.5rem;
   font-weight: 600;
 }
 
 .publisher {
+  color: #199607;
+  font-weight: 600;
+}
+
+.subcategory {
+  margin-left: auto;
+  color: rgb(100, 100, 100);
+  font-size: 1rem;
 }
 
 .publishedAt {
   margin-left: auto;
-  color: rgb(100, 100, 100);
+  color: rgb(100, 100, 100, 0.8);
+  font-size: 0.75rem;
+  font-weight: 600;
 }

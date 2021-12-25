@@ -34,13 +34,10 @@ const BUTTON = {
 };
 
 export default function OnPublishSuccess() {
-  const publishedPost = useSelector((state) => state.publishedPost);
-
   return (
     <div style={MAIN}>
       <div style={MODAL}>
-        {`Congratulation! \n You have successfully published post "${publishedPost.Title}" in
-         ${publishedPost.Subcategory}`}
+        {"Congratulation! \n You have successfully published post "}
 
         <Link href="/">
           <div style={BUTTON}>Back to homepage</div>

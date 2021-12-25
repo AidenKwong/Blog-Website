@@ -1,15 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
-import FileBase from "react-file-base64";
 
-import styles from "../../styles/user.publish.module.css";
-import websitelogo from "../../public/images/speech-bubble.png";
+import styles from "./publish.module.css";
+import websitelogo from "../../../public/images/speech-bubble.png";
 
-import { useState, useRef, createContext } from "react";
-import { useDispatch } from "react-redux";
+import { useState, useRef, useEffect } from "react";
 
-import Modal from "../../components/Modal";
-import { publish } from "../../redux/actions/publishedPosts";
+import Modal from "../../../components/Modal";
 
 const categories = ["News", "Tech", "Life Styles", "Hobbies"];
 const newsCategories = [
@@ -58,7 +55,16 @@ export default function Publish() {
   const [selectedCategoryState, setSelectedCategoryState] = useState(0);
   const [formData, setFormData] = useState(initialForm);
   const [isOpen, setIsOpen] = useState(false);
+
   const selectedCategory = useRef(null);
+  const [auth, setAuth] = useState();
+  useEffect(() => {
+    const auth = JSON.parse(localStorage.getItem("profile"));
+    if (auth) {
+      setAuth(auth);
+      setFormData({ ...formData, Publisher: auth?.result?.username });
+    }
+  }, []);
 
   const handleChange = (index) => {
     setSelectedCategoryState(index);
@@ -130,18 +136,11 @@ export default function Publish() {
             <form autoComplete="off" onSubmit={handleSubmit}>
               <div className={styles.postFormItem}>
                 Publisher
-                <input
-                  onChange={(e) => {
-                    setFormData({
-                      ...formData,
-                      Publisher: e.target.value,
-                    });
-                  }}
-                  required
-                  placeholder="Publisher"
-                  value={formData.Publisher}
-                  className={styles.postInputBox}
-                ></input>
+                {auth ? (
+                  <span> {auth?.result?.username}</span>
+                ) : (
+                  <span> Not yet signed in</span>
+                )}
               </div>
 
               <div className={styles.postFormItem}>
@@ -242,20 +241,13 @@ export default function Publish() {
               <div className={styles.postFormItem}>
                 Thumbnail
                 <input
+                  maxLength="0"
                   className={styles.selectFile}
                   placeholder="Drag and drop or paste here"
                   onPaste={handleOnPaste}
                   onDrop={handleOnDrop}
                 ></input>
                 <input type="file" onChange={handleUploadImage}></input>
-                {/* <FileBase
-                    required
-                    type="file"
-                    multiple={false}
-                    onDone={({ base64 }) =>
-                      setFormData({ ...formData, Thumbnail: base64 })
-                    }
-                  /> */}
               </div>
               <img src={formData.Thumbnail} width="150px"></img>
               <div className={styles.title}>
@@ -303,7 +295,11 @@ export default function Publish() {
                 ></input>
               </div>
               <div className={styles.publish}>
-                <button type="submit" className={styles.publishButton}>
+                <button
+                  type="submit"
+                  className={styles.publishButton}
+                  disabled={!auth}
+                >
                   Publish
                 </button>
               </div>

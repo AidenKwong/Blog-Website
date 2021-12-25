@@ -1,18 +1,20 @@
 import ReactDom from "react-dom";
 import { useRouter } from "next/router";
-import { useSelector, useDispatch } from "react-redux";
-import { publish } from "../redux/actions/publishedPosts";
+import { publishPost } from "../api/posts";
 
 import styles from "../styles/modal.module.css";
 
 export default function Modal({ open, onClose, formData }) {
   const router = useRouter();
-  const dispatch = useDispatch();
-  const publishedPost = useSelector((state) => state.publishedPost);
+
   if (!open) return null;
 
   const handleSubmit = (e) => {
-    dispatch(publish(formData)).then(router.push("/user/publish_success"));
+    publishPost(formData)
+      .then((response) =>
+        router.push(`/user/publish_success/${response.data.Title}`)
+      )
+      .catch((error) => console.log(error));
   };
 
   return ReactDom.createPortal(

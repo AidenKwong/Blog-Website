@@ -1,0 +1,123 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  display: flex;
+  gap: 3em;
+  flex-direction: column;
+  width: 30em;
+  background-color: white;
+  border-radius: 2em;
+  box-shadow: 0 0 2em rgb(25, 100, 7, 0.5);
+  padding: 2em;
+  padding-bottom: 6em;
+  align-items: center;
+  overflow: hidden;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+.title {
+  font-size: 1.75rem;
+  font-weight: 600;
+}
+
+.description {
+  font-size: 1rem;
+  font-weight: 600;
+  opacity: 0.8;
+  text-align: center;
+  width: 80%;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
+.instruction {
+  font-size: 1.25rem;
+  font-weight: 600;
+  opacity: 0.8;
+}
+
+.inputField {
+  height: 2.5em;
+  border: 2px solid rgb(25, 150, 7);
+  border-radius: 1em;
+  background-color: #f1ffef;
+  width: 100%;
+  font-size: 1.25em;
+  font-weight: 600;
+  opacity: 80%;
+  text-align: center;
+  outline: none;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}
+
+.page {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2em;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  height: 14em;
+}
+
+.pagination {
+  display: flex;
+  width: 100%;
+}
+
+.displayNone {
+  display: none;
+}
+
+.button {
+  height: 2.5em;
+  width: 6em;
+  text-align: center;
+  color: rgb(25, 150, 7);
+  opacity: 80%;
+  border: 2px solid rgb(25, 150, 7);
+  border-radius: 1em;
+  background-color: #f1ffef;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  user-select: none;
+}
+
+.button:disabled {
+  color: rgb(150, 150, 150);
+  background-color: white;
+  border-color: rgb(150, 150, 150);
+  cursor: auto;
+}
+
+.button:hover:enabled {
+  background-color: #bfffb6;
+}
+
+.confirmButton {
+  margin-left: auto;
+}
+
+.select {
+  border: 2px solid rgb(25, 150, 7);
+  border-radius: 1em;
+  background-color: #f1ffef;
+  padding: 0.5em;
+  font-size: 1rem;
+  font-weight: 600;
+  margin-left: 1em;
+  margin-right: 1em;
+  outline: none;
+}

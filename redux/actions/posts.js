@@ -8,3 +8,13 @@ export const publish = (post) => async (dispatch) => {
     console.log(error);
   }
 };
+
+export const view = (post) => async (dispatch) => {
+  try {
+    const { data } = await api.viewPost(post);
+
+    dispatch({ type: "VIEW", payload: data });
+  } catch (error) {
+    console.log(error);
+  }
+};

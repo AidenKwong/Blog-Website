@@ -81,9 +81,39 @@
 
 .othersItem {
   cursor: pointer;
-  font-size: xx-large;
+  font-size: 2rem;
+  position: relative;
+  background-color: white;
+  border: none;
 }
 
 .othersItem:hover {
   color: #199607;
+}
+
+.profileButton {
+  justify-content: center;
+}
+
+.profileMenu {
+  position: absolute;
+  right: 0;
+  transform: translate(1rem, -50%) scale(0%);
+  width: 14rem;
+  height: 28rem;
+  pointer-events: auto;
+  border: 0.1rem solid rgb(25, 150, 7);
+  transition: all 300ms ease-in-out;
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .profileMenu {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(188, 231, 182, 0.6);
+  }
+}
+
+.profileButtonActive + .profileMenu {
+  transform: translate(0, 3rem) scale(100%);
 }

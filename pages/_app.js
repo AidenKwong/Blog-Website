@@ -10,7 +10,10 @@ import allReducers from "../redux/reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createWrapper } from "next-redux-wrapper";
 
-const store = createStore(allReducers, compose(applyMiddleware(thunk)));
+const store = createStore(
+  allReducers,
+  composeWithDevTools(applyMiddleware(thunk))
+);
 
 function MyApp({ Component, pageProps }) {
   return (

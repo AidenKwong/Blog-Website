@@ -4,6 +4,7 @@ import Link from "next/link";
 import styles from "./topbar.module.css";
 
 import { useState, useEffect } from "react";
+import { authCheck } from "../../api/auth";
 
 import {
   IoMdMenu,
@@ -20,7 +21,7 @@ export default function Topbar({ navbar, setNavbar }) {
   const [profileActive, setProfileActive] = useState(false);
   const [auth, setAuth] = useState();
 
-  useEffect(() => {
+  useEffect(async () => {
     setAuth(JSON.parse(localStorage.getItem("profile")));
   }, []);
 
@@ -82,9 +83,23 @@ export default function Topbar({ navbar, setNavbar }) {
             )}
           </div>
           <div>Manage your Account</div>
-          <div>
-            <Link href="/user/signin">Sign In</Link>
-          </div>
+          {auth ? (
+            <div>
+              <button
+                onClick={() => {
+                  localStorage.clear();
+                  setAuth(null);
+                }}
+              >
+                Sign Out
+              </button>
+            </div>
+          ) : (
+            <div>
+              <Link href="/user/signin">Sign In</Link>
+            </div>
+          )}
+
           <div>
             <Link href="/user/signup">Sign up</Link>
           </div>

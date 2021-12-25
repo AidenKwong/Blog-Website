@@ -46,7 +46,9 @@
 .instruction {
   font-size: 1.25rem;
   font-weight: 600;
-  opacity: 0.8;
+
+  display: flex;
+  text-align: center;
 }
 
 .inputField {

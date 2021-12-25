@@ -61,7 +61,8 @@
   height: min-content;
   width: 50rem;
   background-color: white;
-  box-shadow: 0px 0px 2px 2px rgb(200, 200, 200);
+  box-shadow: 0px 0px 1em rgb(25, 100, 7, 0.5);
+  border-radius: 1em;
   padding: 1rem;
   font-size: medium;
   font-weight: 600;
@@ -72,8 +73,8 @@
   font-weight: 600;
   background-color: rgb(25, 150, 7, 0.2);
   width: fit-content;
-  padding: 0.5rem;
-  border-radius: 1rem;
+  padding: 1em;
+  border-radius: 0.5em;
 }
 
 .subcategory {
@@ -86,8 +87,8 @@
   font-weight: 600;
   background-color: rgb(25, 150, 7, 0.2);
   width: 100%;
-  padding: 0.5rem;
-  border-radius: 1rem;
+  padding: 1em;
+  border-radius: 0.5em;
 }
 
 .titleInput {
@@ -95,7 +96,7 @@
   margin-left: 1rem;
   outline: 0;
   border: 1px solid #199607;
-  height: auto;
+  height: 2rem;
   font-size: medium;
   background-color: rgb(245, 245, 245);
 }
@@ -106,7 +107,7 @@
   width: 40%;
   outline: 0;
   border: 1px solid #199607;
-  margin: 0 1rem 0 1rem;
+  margin: 0 0.5rem 0 0.5rem;
   font-size: medium;
   background-color: white;
   text-align: center;
@@ -121,7 +122,7 @@
   margin-left: 1rem;
   outline: 0;
   border: 1px solid #199607;
-  height: 50%;
+  height: 2rem;
   font-size: medium;
   background-color: rgb(245, 245, 245);
 }

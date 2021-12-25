@@ -11,9 +11,16 @@ export default function Modal({ open, onClose, formData }) {
 
   const handleSubmit = (e) => {
     publishPost(formData)
-      .then((response) =>
-        router.push(`/user/publish_success/${response.data.Title}`)
-      )
+      .then((response) => {
+        if (response.status == 201)
+          router.push({
+            pathname: `/user/publish_success/${response.data._id}`,
+            query: {
+              Title: response.data.Title,
+              Subcategory: response.data.Subcategory,
+            },
+          });
+      })
       .catch((error) => console.log(error));
   };
 

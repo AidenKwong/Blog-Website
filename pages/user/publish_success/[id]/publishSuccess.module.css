@@ -1,0 +1,57 @@
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.form {
+  display: flex;
+  gap: 3em;
+  flex-direction: column;
+  width: 30em;
+  background-color: white;
+  border-radius: 0.75em;
+  box-shadow: 0 0 2em rgb(25, 100, 7, 0.5);
+  padding: 3em;
+  align-items: center;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+  font-weight: 600;
+}
+
+.instruction {
+  font-size: 1.5rem;
+  font-weight: 600;
+  opacity: 0.8;
+  text-align: center;
+  line-height: 2em;
+}
+
+.title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #199607;
+}
+
+.button {
+  text-align: center;
+  color: rgb(25, 150, 7);
+  opacity: 80%;
+  border: 2px solid rgb(25, 150, 7);
+  border-radius: 0.5em;
+  background-color: #f1ffef;
+  cursor: pointer;
+  font-size: 1em;
+  font-weight: 600;
+  user-select: none;
+  padding: 1em;
+}
+
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
+}

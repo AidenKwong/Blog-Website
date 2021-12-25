@@ -72,7 +72,6 @@ export default function Topbar({ navbar, setNavbar }) {
           tabIndex="0"
           onBlur={() => {
             setProfileActive(false);
-            console.log("profileInactive");
           }}
         >
           <div>

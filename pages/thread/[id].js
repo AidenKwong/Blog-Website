@@ -22,7 +22,6 @@ export const getServerSideProps = async (context) => {
 
 export default function Post({ post }) {
   const router = useRouter();
-  console.log(post);
   return (
     <div className={styles.main}>
       <span onClick={() => router.back()} className={styles.goBack}>

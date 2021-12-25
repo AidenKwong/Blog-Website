@@ -1,10 +1,10 @@
 import axios from "axios";
 
 // const API = axios.create({
-//   baseURL: "https://blog-website-indevelopment.herokuapp.com/posts",
+//   baseURL: "http://localhost:5000/posts",
 // });
 const API = axios.create({
-  baseURL: "http://localhost:5000/posts",
+  baseURL: "https://blog-website-indevelopment.herokuapp.com/posts",
 });
 
 API.interceptors.request.use(

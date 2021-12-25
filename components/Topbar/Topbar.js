@@ -47,17 +47,17 @@ export default function Topbar({ navbar, setNavbar }) {
 
       <div className={styles.others}>
         <Link href="/user/publish">
-          <button className={styles.othersItem}>
+          <div className={styles.othersItem}>
             <IoMdCreate />
-          </button>
+          </div>
         </Link>
         <Link href="/user/publish">
-          <button className={styles.othersItem}>
+          <div className={styles.othersItem}>
             <IoMdNotifications />
-          </button>
+          </div>
         </Link>
 
-        <button
+        <div
           className={`${styles.othersItem} ${styles.profileButton} ${
             profileActive && styles.profileButtonActive
           }`}
@@ -66,7 +66,7 @@ export default function Topbar({ navbar, setNavbar }) {
           }}
         >
           <IoMdPerson />
-        </button>
+        </div>
         <div
           className={styles.profileMenu}
           tabIndex="0"
@@ -105,9 +105,9 @@ export default function Topbar({ navbar, setNavbar }) {
         </div>
 
         <Link href="/user/publish">
-          <button className={styles.othersItem}>
+          <div className={styles.othersItem}>
             <IoMdSettings />
-          </button>
+          </div>
         </Link>
       </div>
     </div>

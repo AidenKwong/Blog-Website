@@ -2,6 +2,7 @@
   padding: 2em;
   display: grid;
   gap: 2em;
+  align-items: start;
 }
 
 .goBack {
@@ -9,7 +10,9 @@
 }
 
 .postContainer {
-  width: 50em;
+  max-width: 50em;
+  display: flex;
+  flex-direction: column;
   border-radius: 1em;
   overflow: hidden;
   box-shadow: 0px 0px 1em rgb(150, 150, 150);

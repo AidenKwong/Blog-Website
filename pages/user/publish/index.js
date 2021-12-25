@@ -168,7 +168,7 @@ export default function Publish() {
                     );
                   })}
                 </select>
-                <span className={styles.subcategory}> Subcategory</span>
+                <div className={styles.subcategory}> Subcategory</div>
                 {selectedCategoryState == 0 && (
                   <select
                     onChange={(e) => {

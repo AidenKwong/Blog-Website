@@ -1,5 +1,5 @@
 .navbar {
-  position: fixed;
+  position: absolute;
   height: calc(100vh - 60px);
   width: 14rem;
   align-items: center;

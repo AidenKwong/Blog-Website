@@ -8,9 +8,9 @@ import {
   IoMdFlame,
 } from "react-icons/io";
 
-export default function Navbar() {
+export default function Navbar({ setNavbar }) {
   return (
-    <div className={styles.navbar}>
+    <div className={styles.navbar} onBlur={() => setNavbar(false)}>
       <div className={styles.section1}>
         <Link href="/main">
           <div className={styles.navitem}>

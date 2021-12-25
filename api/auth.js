@@ -1,10 +1,10 @@
 import axios from "axios";
 
 // const API = axios.create({
-//   baseURL: "http://localhost:5000/users",
+//   baseURL: "http://localhost:5000",
 // });
 const API = axios.create({
-  baseURL: "https://blog-website-indevelopment.herokuapp.com/users",
+  baseURL: "https://blog-website-indevelopment.herokuapp.com",
 });
 
 API.interceptors.request.use(
@@ -21,5 +21,6 @@ API.interceptors.request.use(
   }
 );
 
-export const signUp = (userInfo) => API.post("/signup", userInfo);
-export const signIn = (userInfo) => API.post("/signin", userInfo);
+export const signUp = (userInfo) => API.post("/users/signup", userInfo);
+export const signIn = (userInfo) => API.post("/users/signin", userInfo);
+export const publishPost = (newPost) => API.post("/posts", newPost);

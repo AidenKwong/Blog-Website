@@ -1,6 +1,6 @@
 import ReactDom from "react-dom";
 import { useRouter } from "next/router";
-import { publishPost } from "../api/posts";
+import { publishPost } from "../api/auth";
 
 import styles from "../styles/modal.module.css";
 

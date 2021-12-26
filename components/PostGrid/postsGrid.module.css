@@ -2,8 +2,8 @@
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   align-items: start;
-  gap: 1rem;
-  padding: 1rem;
+  gap: 1em;
+  padding: 1em;
 }
 
 .card {
@@ -29,7 +29,7 @@
 .thumbnail {
   max-width: 100%;
   height: auto;
-  border-radius: 0.75rem;
+  border-radius: 0.5em;
 }
 
 .title {

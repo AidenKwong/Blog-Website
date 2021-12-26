@@ -35,7 +35,7 @@ export default function Post({ post }) {
         <div className={styles.container}>
           <div className={styles.title}>{post.Title}</div>
           <div className={styles.publisher}>{post.Publisher}</div>
-          <img src={post.Thumbnail} />
+          <img className={styles.thumbnail} src={post.Thumbnail} />
           <div className={styles.content}>{post.Content}</div>
           <div>
             <span className={styles.like}>{post.likeCount}</span>

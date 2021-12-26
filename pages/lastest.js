@@ -4,6 +4,14 @@ import { fetchPosts } from "../api/posts";
 
 import PostGrid from "../components/PostGrid/PostGrid";
 
+// export async function getStaticProps(context) {
+//   const { data } = await fetchPosts(0);
+
+//   return {
+//     props: { data }, // will be passed to the page component as props
+//   };
+// }
+
 export default function Lastest() {
   const [posts, setPosts] = useState([]);
   const [loading, setLoading] = useState(true);

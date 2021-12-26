@@ -252,18 +252,20 @@ export default function Publish() {
               <img src={formData.Thumbnail} width="150px"></img>
               <div className={styles.title}>
                 Title
-                <input
-                  onChange={(e) => {
-                    setFormData({
-                      ...formData,
-                      Title: e.target.value,
-                    });
-                  }}
-                  required
-                  value={formData.Title}
-                  placeholder="Title"
-                  className={styles.titleInput}
-                ></input>
+                <span>
+                  <input
+                    onChange={(e) => {
+                      setFormData({
+                        ...formData,
+                        Title: e.target.value,
+                      });
+                    }}
+                    required
+                    value={formData.Title}
+                    placeholder="Title"
+                    className={styles.titleInput}
+                  ></input>
+                </span>
               </div>
 
               <div className={styles.postFormItem}>Content</div>

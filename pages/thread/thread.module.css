@@ -55,6 +55,10 @@
   height: auto;
 }
 
+.content {
+  white-space: pre-line;
+}
+
 .like {
   margin-right: 1em;
 }

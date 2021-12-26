@@ -34,9 +34,12 @@ export default function PostGrid({ posts, setPage, loading }) {
                   ) : (
                     <img className={styles.thumbnail} src={post.Thumbnail} />
                   )}
-                  <div>{post.Title}</div>
-                  <span>{post.Publisher}</span>
-                  <span>{new Date(post.publishedAt).toLocaleString()}</span>
+                  <div className={styles.title}>{post.Title}</div>
+                  <span className={styles.publisher}>{post.Publisher}</span>
+                  <span className={styles.subcategory}>{post.Subcategory}</span>
+                  <span className={styles.publishedAt}>
+                    {moment(post.publishedAt).fromNow()}
+                  </span>
                 </div>
               </Link>
             );

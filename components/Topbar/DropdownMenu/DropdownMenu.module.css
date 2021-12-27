@@ -1,9 +1,7 @@
 .profileMenu {
   position: fixed;
-  top: 4em;
-  right: 0;
-  width: 14rem;
-  height: 28rem;
+  width: 100vw;
+  height: 100vh;
   pointer-events: auto;
   border: 0.1rem solid rgb(25, 150, 7);
   transition: transform 300ms ease-in-out;

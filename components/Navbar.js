@@ -1,6 +1,6 @@
 import styles from "../styles/navbar.module.css";
 import Link from "next/link";
-
+import { useRef } from "react";
 import {
   IoMdHome,
   IoMdPeople,
@@ -10,8 +10,9 @@ import {
 
 export default function Navbar({ navbar, setNavbar }) {
   if (navbar === false) return null;
+
   return (
-    <div className={styles.navbar} onBlur={() => setNavbar(false)}>
+    <button className={styles.navbar}>
       <div className={styles.section1}>
         <Link href="/main">
           <div className={styles.navitem}>
@@ -150,6 +151,6 @@ export default function Navbar({ navbar, setNavbar }) {
           </Link>
         </div>
       </div>
-    </div>
+    </button>
   );
 }

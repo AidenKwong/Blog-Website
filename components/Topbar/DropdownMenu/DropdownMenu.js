@@ -2,7 +2,7 @@ import styles from "./DropdownMenu.module.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
 
-export default function DropdownMenu({ profileActive }) {
+export default function DropdownMenu({ profileActive, setProfileActive }) {
   const [auth, setAuth] = useState();
 
   useEffect(async () => {
@@ -10,7 +10,11 @@ export default function DropdownMenu({ profileActive }) {
   }, []);
   if (profileActive === false) return null;
   return (
-    <div className={styles.profileMenu} tabIndex="0">
+    <div
+      className={styles.profileMenu}
+      tabIndex="0"
+      onBlur={() => setProfileActive(false)}
+    >
       <div>
         {auth ? (
           <div>{auth.result.username}</div>

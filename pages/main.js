@@ -13,17 +13,22 @@ export default function Main({ children }) {
   const [profileActive, setProfileActive] = useState(false);
 
   return (
-    <div className={navbar ? styles.homeactive : styles.home}>
+    <div className={styles.home}>
       <Topbar
         navbar={navbar}
         setNavbar={setNavbar}
         profileActive={profileActive}
         setProfileActive={setProfileActive}
       />
-      <div className={styles.overlay} />
-      <div className={styles.navbar}>
-        <Navbar navbar={navbar} setNavbar={setNavbar} />
-      </div>
+      {navbar ? (
+        <div>
+          <div className={styles.overlay} onClick={() => setNavbar(false)} />
+          <div className={styles.navbar}>
+            <Navbar navbar={navbar} setNavbar={setNavbar} />
+          </div>
+        </div>
+      ) : null}
+
       <DropdownMenu
         profileActive={profileActive}
         setProfileActive={setProfileActive}

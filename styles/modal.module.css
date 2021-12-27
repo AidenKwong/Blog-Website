@@ -11,6 +11,21 @@
   font-weight: 600;
 }
 
+.form {
+  display: flex;
+  gap: 3em;
+  flex-direction: column;
+  width: 30em;
+  background-color: white;
+  border-radius: 2em;
+  box-shadow: 0 0 2em rgb(25, 100, 7, 0.5);
+  padding: 2em;
+  padding-bottom: 6em;
+  align-items: center;
+  overflow: hidden;
+  animation: 1s ease-out 0s 1 slideInFromLeft;
+}
+
 .OVERLAY_STYLES {
   position: fixed;
   top: 0;

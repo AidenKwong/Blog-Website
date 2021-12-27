@@ -4,6 +4,7 @@
   align-items: start;
   gap: 1em;
   padding: 1em;
+  padding-top: 4rem;
 }
 
 .card {
@@ -20,10 +21,6 @@
 
 .row_span_2 {
   grid-row: span 2 / auto;
-}
-
-.card:hover {
-  transform: scale(1.02);
 }
 
 .thumbnail {

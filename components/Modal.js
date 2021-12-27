@@ -1,16 +1,19 @@
 import ReactDom from "react-dom";
 import { useRouter } from "next/router";
 import { publishPost } from "../api/auth";
+import { useState } from "react";
 
 import styles from "../styles/modal.module.css";
 
 export default function Modal({ open, onClose, formData }) {
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
 
   if (!open) return null;
 
-  const handleSubmit = (e) => {
-    publishPost(formData)
+  const handleSubmit = async () => {
+    setLoading("loading...");
+    await publishPost(formData)
       .then((response) => {
         if (response.status == 201)
           router.push({
@@ -21,7 +24,10 @@ export default function Modal({ open, onClose, formData }) {
             },
           });
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        console.log(error);
+        setLoading("Publish failed.");
+      });
   };
 
   return ReactDom.createPortal(
@@ -29,14 +35,18 @@ export default function Modal({ open, onClose, formData }) {
       <div className={styles.OVERLAY_STYLES} />
       <div className={styles.MODAL_STYLES}>
         Do you want to submit this post?
-        <div className={styles.BUTTON_CHOICES}>
-          <button className={styles.BUTTON_CANCEL} onClick={onClose}>
-            Cancel
-          </button>
-          <button className={styles.BUTTON_CONFIRM} onClick={handleSubmit}>
-            Confirm
-          </button>
-        </div>
+        {loading ? (
+          <div>{loading}</div>
+        ) : (
+          <div className={styles.BUTTON_CHOICES}>
+            <button className={styles.BUTTON_CANCEL} onClick={onClose}>
+              Cancel
+            </button>
+            <button className={styles.BUTTON_CONFIRM} onClick={handleSubmit}>
+              Confirm
+            </button>
+          </div>
+        )}
       </div>
     </>,
     document.getElementById("portal")

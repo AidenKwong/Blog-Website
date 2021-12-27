@@ -2,26 +2,20 @@ import styles from "./thread.module.css";
 
 import { useRouter } from "next/router";
 import { viewPost } from "../../api/posts";
+import { useEffect, useState } from "react";
 
-export const getServerSideProps = async (context) => {
-  const res = await viewPost(context.params.id);
-
-  if (!res) {
-    return {
-      redirect: {
-        destination: "/",
-        permanent: false,
-      },
-    };
-  }
-  `enter code here`;
-  return {
-    props: { post: res.data }, // will be passed to the page component as props
-  };
-};
-
-export default function Post({ post }) {
+export default function Post() {
   const router = useRouter();
+  const postId = router.query.id;
+  const [post, setPost] = useState();
+  const [loading, setLoading] = useState(true);
+  useEffect(async () => {
+    await viewPost(postId).then((res) => {
+      setPost(res.data);
+      setLoading(false);
+    });
+  }, []);
+  if (loading) return <div>loading...</div>;
   return (
     <div className={styles.main}>
       <span onClick={() => router.back()} className={styles.goBack}>

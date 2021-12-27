@@ -5,12 +5,13 @@
   width: 14rem;
   height: 20rem;
   pointer-events: auto;
-  border: 0.1rem solid rgb(25, 150, 7);
+  border-radius: 1em;
+  padding: 1em;
   transition: transform 300ms ease-in-out;
   z-index: 999;
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
-  background-color: rgba(188, 231, 182, 0.6);
+  background-color: rgba(255, 255, 255, 0.5);
 }
 
 @media screen and (max-width: 400px) {
@@ -24,6 +25,6 @@
   .profileMenu {
     -webkit-backdrop-filter: blur(10px);
     backdrop-filter: blur(10px);
-    background-color: rgba(188, 231, 182, 0.6);
+    background-color: rgba(255, 255, 255, 0.5);
   }
 }

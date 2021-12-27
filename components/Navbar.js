@@ -8,7 +8,8 @@ import {
   IoMdFlame,
 } from "react-icons/io";
 
-export default function Navbar({ setNavbar }) {
+export default function Navbar({ navbar, setNavbar }) {
+  if (navbar === false) return null;
   return (
     <div className={styles.navbar} onBlur={() => setNavbar(false)}>
       <div className={styles.section1}>

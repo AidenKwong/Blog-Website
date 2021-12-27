@@ -22,7 +22,7 @@ export default function Main({ children }) {
       />
       <div className={styles.overlay} />
       <div className={styles.navbar}>
-        <Navbar setNavbar={setNavbar} />
+        <Navbar navbar={navbar} setNavbar={setNavbar} />
       </div>
       <DropdownMenu
         profileActive={profileActive}

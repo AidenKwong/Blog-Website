@@ -8,6 +8,17 @@
   padding-right: 14px;
   padding-left: 14px;
   overflow-y: scroll;
+  animation-name: example;
+  animation-duration: 300ms;
+}
+
+@keyframes example {
+  from {
+    transform: translateX(-110%);
+  }
+  to {
+    transform: translateX(0%);
+  }
 }
 
 .navbar::-webkit-scrollbar {

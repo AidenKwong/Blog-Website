@@ -1,0 +1,22 @@
+.profileMenu {
+  position: fixed;
+  top: 4em;
+  right: 0;
+  width: 14rem;
+  height: 28rem;
+  pointer-events: auto;
+  border: 0.1rem solid rgb(25, 150, 7);
+  transition: transform 300ms ease-in-out;
+  z-index: 999;
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  background-color: rgba(188, 231, 182, 0.6);
+}
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .profileMenu {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(188, 231, 182, 0.6);
+  }
+}

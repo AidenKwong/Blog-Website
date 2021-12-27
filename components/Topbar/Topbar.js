@@ -17,14 +17,12 @@ import {
 
 import websitelogo from "../../public/images/speech-bubble.png";
 
-export default function Topbar({ navbar, setNavbar }) {
-  const [profileActive, setProfileActive] = useState(false);
-  const [auth, setAuth] = useState();
-
-  useEffect(async () => {
-    setAuth(JSON.parse(localStorage.getItem("profile")));
-  }, []);
-
+export default function Topbar({
+  navbar,
+  setNavbar,
+  profileActive,
+  setProfileActive,
+}) {
   return (
     <div className={styles.topbar}>
       <div className={styles.logobox}>
@@ -66,42 +64,6 @@ export default function Topbar({ navbar, setNavbar }) {
           }}
         >
           <IoMdPerson />
-        </div>
-        <div
-          className={styles.profileMenu}
-          tabIndex="0"
-          onBlur={() => {
-            setProfileActive(false);
-          }}
-        >
-          <div>
-            {auth ? (
-              <div>{auth.result.username}</div>
-            ) : (
-              <div>Not yet signed in</div>
-            )}
-          </div>
-          <div>Manage your Account</div>
-          {auth ? (
-            <div>
-              <button
-                onClick={() => {
-                  localStorage.clear();
-                  setAuth(null);
-                }}
-              >
-                Sign Out
-              </button>
-            </div>
-          ) : (
-            <div>
-              <Link href="/user/signin">Sign In</Link>
-            </div>
-          )}
-
-          <div>
-            <Link href="/user/signup">Sign up</Link>
-          </div>
         </div>
 
         <Link href="/user/publish">

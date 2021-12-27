@@ -1,7 +1,9 @@
 .profileMenu {
   position: fixed;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
+  top: 4em;
+  width: 14rem;
+  height: 20rem;
   pointer-events: auto;
   border: 0.1rem solid rgb(25, 150, 7);
   transition: transform 300ms ease-in-out;
@@ -9,6 +11,13 @@
   -webkit-backdrop-filter: blur(10px);
   backdrop-filter: blur(10px);
   background-color: rgba(188, 231, 182, 0.6);
+}
+
+@media screen and (max-width: 400px) {
+  .profileMenu {
+    width: 100vw;
+    height: 100vh;
+  }
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {

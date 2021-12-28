@@ -2,16 +2,25 @@
   justify-content: space-between;
   align-items: center;
   display: flex;
-  background-color: white;
-  border-bottom: 1px solid rgb(200, 200, 200);
+  border: 0.25rem solid white;
+  border-radius: 1em;
   padding: 8px;
   padding-left: 20px;
   padding-right: 20px;
   height: 4rem;
   width: 100%;
-  top: 0;
+  top: 0.5em;
   position: fixed;
 }
+
+@supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {
+  .topbar {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+    background-color: rgba(255, 255, 255, 0.7);
+  }
+}
+
 .logobox {
   justify-content: space-between;
   align-items: center;
@@ -19,9 +28,9 @@
 }
 
 .navbarbutton {
-  background-color: white;
   border: 0;
   cursor: pointer;
+  background-color: transparent;
 }
 
 .navbarbutton:hover {
@@ -45,8 +54,9 @@
   height: 40px;
   padding-left: 8px;
   font-size: medium;
-  outline: none;
+  border: 1px solid #199607;
   width: 100%;
+  border-radius: 1rem 0 0 1rem;
 }
 
 .searchbar::placeholder {
@@ -56,30 +66,32 @@
 
 .searchbar:focus {
   border: 1px solid #199607;
+  outline: none;
 }
 
 .searchbutton {
-  background-color: rgb(240, 240, 240);
   border-top: 1px solid rgb(200, 200, 200);
   border-right: 1px solid rgb(200, 200, 200);
   border-bottom: 1px solid rgb(200, 200, 200);
   border-left: 0;
+  border-radius: 0 1rem 1rem 0;
+  background-color: white;
   width: 70px;
   height: 40px;
-  display: block;
-  justify-content: space-between;
+  display: flex;
+  justify-content: center;
   align-items: center;
   cursor: pointer;
 }
 
 .searchbutton:hover {
-  background-color: rgb(230, 230, 230);
   color: #199607;
 }
 
 .others {
   display: flex;
   gap: 0px 1em;
+  margin-right: 1em;
 }
 
 .othersItem {
@@ -87,7 +99,6 @@
   cursor: pointer;
   font-size: 2rem;
   position: relative;
-  background-color: white;
   border: none;
   text-align: center;
 }

@@ -14,7 +14,7 @@
   background-color: rgba(255, 255, 255, 0.9);
   animation-name: example;
   animation-duration: 300ms;
-  border: none;
+  border: 0.5rem solid white;
 }
 
 @supports (-webkit-backdrop-filter: none) or (backdrop-filter: none) {

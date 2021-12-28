@@ -15,17 +15,17 @@ export default function DropdownMenu({ profileActive, setProfileActive }) {
       tabIndex="0"
       onBlur={() => setProfileActive(false)}
     >
-      <div>
+      <div className={styles.item}>
         {auth ? (
           <div>{auth.result.username}</div>
         ) : (
           <div>Not yet signed in</div>
         )}
       </div>
-      <div>Manage your Account</div>
       {auth ? (
         <div>
           <button
+            className={styles.item}
             onClick={() => {
               localStorage.clear();
               setAuth(null);
@@ -35,12 +35,12 @@ export default function DropdownMenu({ profileActive, setProfileActive }) {
           </button>
         </div>
       ) : (
-        <div>
+        <div className={styles.item}>
           <Link href="/user/signin">Sign In</Link>
         </div>
       )}
 
-      <div>
+      <div className={styles.item}>
         <Link href="/user/signup">Sign up</Link>
       </div>
     </div>

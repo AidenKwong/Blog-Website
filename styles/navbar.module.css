@@ -71,12 +71,12 @@
   height: 45px;
   font-size: medium;
   transition: all 100ms ease-in;
+  background-color: transparent;
 }
 
 .navitem:hover {
-  background-color: rgb(245, 245, 245);
-  color: #199607;
   font-size: large;
+  color: #199607;
 }
 
 .navitem > span {

@@ -24,3 +24,4 @@ API.interceptors.request.use(
 export const signUp = (userInfo) => API.post("/users/signup", userInfo);
 export const signIn = (userInfo) => API.post("/users/signin", userInfo);
 export const publishPost = (newPost) => API.post("/posts", newPost);
+export const authCheck = () => API.get("/users/authcheck");

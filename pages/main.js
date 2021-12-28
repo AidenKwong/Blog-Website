@@ -1,8 +1,8 @@
 import Topbar from "../components/Topbar/Topbar";
 import Navbar from "../components/Navbar";
 import DropdownMenu from "../components/Topbar/DropdownMenu/DropdownMenu";
-
-import { fetchPosts } from "../api/posts";
+import { authCheck } from "../api/auth";
+import ReactDom from "react-dom";
 
 import styles from "../styles/main.module.css";
 
@@ -11,6 +11,35 @@ import React, { useState, useEffect } from "react";
 export default function Main({ children }) {
   const [navbar, setNavbar] = useState(false);
   const [profileActive, setProfileActive] = useState(false);
+  const [auth, setAuth] = useState();
+
+  useEffect(async () => {
+    await authCheck().catch((err) => {
+      if (err.status == 409) {
+        console.log(err);
+        setAuth(false);
+        localStorage.clear();
+      }
+    });
+  }, []);
+  if (auth === false)
+    return ReactDom.createPortal(
+      <>
+        <div className={styles.OVERLAY_STYLES} />
+        <div className={styles.MODAL_STYLES}>
+          Your session expired. Try Log in again.
+          <div className={styles.BUTTON_CHOICES}>
+            <button
+              className={styles.BUTTON_CONFIRM}
+              onClick={() => setAuth(true)}
+            >
+              Confirm
+            </button>
+          </div>
+        </div>
+      </>,
+      document.getElementById("portal")
+    );
 
   return (
     <div className={styles.home}>

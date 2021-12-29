@@ -30,7 +30,12 @@ export default function Lastest() {
   return (
     <div>
       <Main>
-        <PostGrid posts={posts} setPage={setPage} loading={loading} />
+        <PostGrid
+          posts={posts}
+          setPage={setPage}
+          loading={loading}
+          setLoading={setLoading}
+        />
       </Main>
     </div>
   );

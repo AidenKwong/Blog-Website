@@ -9,14 +9,15 @@ export default function PostGrid({ posts, setPage, loading }) {
   const observer = useRef();
   const lastPostRef = useCallback(
     (node) => {
-      if (loading) return;
       if (observer.current) observer.current.disconnect();
       observer.current = new IntersectionObserver((entries) => {
         if (entries[0].isIntersecting) {
           setPage((page) => page + 1);
         }
       });
-      if (node) observer.current.observe(node);
+      if (node) {
+        observer.current.observe(node);
+      }
     },
     [loading]
   );

@@ -10,6 +10,7 @@ import allReducers from "../redux/reducers";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createWrapper } from "next-redux-wrapper";
 import Head from "next/head";
+import NextNProgress from "nextjs-progressbar";
 
 const store = createStore(
   allReducers,
@@ -21,8 +22,9 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <Head>
         <title>Blog</title>
+        <link rel="stylesheet" type="text/css" href="/nprogress.css" />
       </Head>
-
+      <NextNProgress color="#199607" height={6} />
       <Component {...pageProps} />
     </Provider>
   );

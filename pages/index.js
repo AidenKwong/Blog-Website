@@ -1,15 +1,10 @@
-import Head from "next/head";
-
-import Main from "./main";
-
+import { useRouter } from "next/router";
+import { useEffect } from "react";
 export default function Home() {
-  return (
-    <div>
-      <Head>
-        <title>Blog</title>
-      </Head>
+  const router = useRouter();
+  useEffect(() => {
+    router.push("/lastest");
+  }, []);
 
-      <Main />
-    </div>
-  );
+  return <div></div>;
 }

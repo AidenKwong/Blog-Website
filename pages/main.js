@@ -14,13 +14,13 @@ export default function Main({ children }) {
   const [auth, setAuth] = useState();
 
   useEffect(async () => {
-    await authCheck().catch((err) => {
-      if (err.status == 409) {
+    if (localStorage.getItem("profile")) {
+      await authCheck().catch((err) => {
         console.log(err);
         setAuth(false);
         localStorage.clear();
-      }
-    });
+      });
+    }
   }, []);
   if (auth === false)
     return ReactDom.createPortal(

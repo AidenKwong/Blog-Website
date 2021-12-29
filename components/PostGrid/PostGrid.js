@@ -1,9 +1,9 @@
 import styles from "./postsGrid.module.css";
 import no_image from "../../public/images/no-image.jpg";
 import moment from "moment";
+
 import { useCallback, useRef } from "react";
 import Link from "next/link";
-import { useDispatch } from "react-redux";
 
 export default function PostGrid({ posts, setPage, loading }) {
   const observer = useRef();

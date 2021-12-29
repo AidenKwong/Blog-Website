@@ -1,6 +1,6 @@
 .postGrid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(240px, 2fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   align-items: start;
   gap: 1em;
   padding: 1em;
@@ -50,4 +50,18 @@
   color: rgb(100, 100, 100, 0.8);
   font-size: 0.75rem;
   font-weight: 600;
+}
+
+@media only screen and (max-width: 400px) {
+  .postGrid {
+    grid-template-columns: 1fr 1fr;
+  }
+  .title {
+    font-size: 1rem;
+  }
+  .publisher,
+  .subcategory,
+  .publishedAt {
+    font-size: 0.75rem;
+  }
 }

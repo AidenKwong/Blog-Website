@@ -12,9 +12,11 @@ const initialformData = {
 export default function index() {
   const [formData, setFormData] = useState(initialformData);
   const [invalid, setInvalid] = useState(false);
+  const [loading, setLoading] = useState(false);
   const router = useRouter();
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       const response = await signIn(formData);
 
@@ -23,6 +25,7 @@ export default function index() {
         localStorage.setItem("profile", JSON.stringify(response.data));
       }
     } catch (error) {
+      setLoading(false);
       setInvalid(true);
     }
   };
@@ -65,23 +68,26 @@ export default function index() {
                 </div>
               )}
             </div>
+            {loading ? (
+              <div>Signing in...</div>
+            ) : (
+              <div className={styles.buttonContainer}>
+                <pre className={styles.signUpLink}>
+                  {"Don't have an account?\nClick "}
+                  <Link href="/user/signup">
+                    <span className={styles.link}>here</span>
+                  </Link>
+                  {" to sign up."}
+                </pre>
 
-            <div className={styles.buttonContainer}>
-              <pre className={styles.signUpLink}>
-                {"Don't have an account?\nClick "}
-                <Link href="/user/signup">
-                  <span className={styles.link}>here</span>
-                </Link>
-                {" to sign up."}
-              </pre>
-
-              <button
-                type="submit"
-                className={`${styles.button} ${styles.confirmButton}`}
-              >
-                Sign In
-              </button>
-            </div>
+                <button
+                  type="submit"
+                  className={`${styles.button} ${styles.confirmButton}`}
+                >
+                  Sign In
+                </button>
+              </div>
+            )}
           </div>
         </form>
       </div>

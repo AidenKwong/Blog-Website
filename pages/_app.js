@@ -9,6 +9,7 @@ import allReducers from "../redux/reducers";
 
 import { composeWithDevTools } from "redux-devtools-extension";
 import { createWrapper } from "next-redux-wrapper";
+import Head from "next/head";
 
 const store = createStore(
   allReducers,
@@ -18,6 +19,10 @@ const store = createStore(
 function MyApp({ Component, pageProps }) {
   return (
     <Provider store={store}>
+      <Head>
+        <title>Blog</title>
+      </Head>
+
       <Component {...pageProps} />
     </Provider>
   );

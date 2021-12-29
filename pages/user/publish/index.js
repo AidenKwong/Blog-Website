@@ -122,7 +122,6 @@ export default function Publish() {
         </div>
       </div>
       <div className={styles.lowerDiv}>
-        <div className={styles.navbar}>This is navbar</div>
         <div className={styles.mainDiv}>
           <div className={styles.instruction}>
             {`Publish your thoughts to the world.

@@ -1,6 +1,7 @@
 import styles from "./DropdownMenu.module.css";
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import { IoLogIn, IoLogOut, IoReturnUpForward } from "react-icons/io5";
 
 export default function DropdownMenu({ profileActive, setProfileActive }) {
   const [auth, setAuth] = useState();
@@ -15,34 +16,38 @@ export default function DropdownMenu({ profileActive, setProfileActive }) {
       tabIndex="0"
       onBlur={() => setProfileActive(false)}
     >
-      <div className={styles.item}>
-        {auth ? (
-          <div>{auth.result.username}</div>
-        ) : (
-          <div>Not yet signed in</div>
-        )}
-      </div>
       {auth ? (
-        <div>
-          <button
-            className={styles.item}
-            onClick={() => {
-              localStorage.clear();
-              setAuth(null);
-            }}
-          >
-            Sign Out
-          </button>
-        </div>
+        <div className={styles.item}>{auth.result.username}</div>
       ) : (
-        <div className={styles.item}>
-          <Link href="/user/signin">Sign In</Link>
-        </div>
+        <div className={styles.item}>Not yet Signed in</div>
       )}
 
-      <div className={styles.item}>
-        <Link href="/user/signup">Sign up</Link>
-      </div>
+      {auth ? (
+        <div
+          className={styles.item}
+          onClick={() => {
+            localStorage.clear();
+            setAuth(null);
+          }}
+        >
+          Sign Out
+          <IoLogOut style={{ fontSize: "1.75rem" }} />
+        </div>
+      ) : (
+        <Link href="/user/signin">
+          <div className={styles.item}>
+            Sign In
+            <IoLogIn style={{ fontSize: "1.75rem" }} />
+          </div>
+        </Link>
+      )}
+
+      <Link href="/user/signup">
+        <div className={styles.item}>
+          Sign up
+          <IoReturnUpForward style={{ fontSize: "1.75rem" }} />
+        </div>
+      </Link>
     </div>
   );
 }

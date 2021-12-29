@@ -7,17 +7,16 @@ import { useEffect, useState } from "react";
 export default function Post() {
   const router = useRouter();
   const postId = router.query.id;
-  const [post, setPost] = useState();
+  const [post, setPost] = useState({});
   const [loading, setLoading] = useState(true);
   useEffect(async () => {
-    await viewPost(postId).then((res) => {
-      setPost(res.data);
-      setLoading(false);
-    });
+    const res = await viewPost(postId);
+    setPost(res.data);
+    setLoading(false);
   }, []);
-  if (loading) return <div>loading...</div>;
   return (
     <div className={styles.main}>
+      {loading && <div>loading...</div>}
       <span onClick={() => router.back()} className={styles.goBack}>
         Click here to go back
       </span>

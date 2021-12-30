@@ -9,6 +9,11 @@ const initialformData = {
   password: "",
 };
 
+const demoFormData = {
+  email: "demo@demo.com",
+  password: "demo",
+};
+
 export default function index() {
   const [formData, setFormData] = useState(initialformData);
   const [invalid, setInvalid] = useState(false);
@@ -17,8 +22,26 @@ export default function index() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
+
     try {
       const response = await signIn(formData);
+
+      if (response.status == 200) {
+        router.push("/");
+        localStorage.setItem("profile", JSON.stringify(response.data));
+      }
+    } catch (error) {
+      setLoading(false);
+      setInvalid(true);
+    }
+  };
+
+  const demoLogin = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    try {
+      const response = await signIn(demoFormData);
 
       if (response.status == 200) {
         router.push("/");
@@ -89,6 +112,9 @@ export default function index() {
               </div>
             )}
           </div>
+          <button onClick={demoLogin} className={styles.demoSignIn}>
+            Sign in as demo user
+          </button>
         </form>
       </div>
     </div>

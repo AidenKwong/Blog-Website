@@ -22,7 +22,6 @@ function MyApp({ Component, pageProps }) {
     <Provider store={store}>
       <Head>
         <title>Blog</title>
-        <link rel="stylesheet" type="text/css" href="/nprogress.css" />
       </Head>
       <NextNProgress color="#199607" height={6} />
       <Component {...pageProps} />

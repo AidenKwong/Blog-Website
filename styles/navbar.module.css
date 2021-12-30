@@ -12,6 +12,7 @@
   overflow-y: scroll;
   backdrop-filter: blur(10px);
   background-color: rgba(255, 255, 255, 0.9);
+  color: #124143;
   animation-name: example;
   animation-duration: 300ms;
   border: 0.5rem solid white;
@@ -31,17 +32,17 @@
 }
 
 .navbar::-webkit-scrollbar-thumb {
-  background-color: rgb(25, 150, 7, 0.5);
+  background-color: #5ac994;
   border-radius: 10px;
 }
 
 .section1 {
   margin-bottom: 8px;
-  border-bottom: 1px solid rgb(25, 150, 7, 0.7);
+  border-bottom: 1px solid #141b29;
 }
 
 .section2 {
-  border-bottom: 1px solid rgb(25, 150, 7, 0.7);
+  border-bottom: 1px solid #141b29;
 }
 
 .sectiontitle {
@@ -54,21 +55,20 @@
 .navitem {
   display: flex;
   align-items: center;
-  padding-top: 6px;
-  padding-bottom: 6px;
+  gap: 1rem;
   padding-left: 6px;
-  border: 0;
   cursor: pointer;
   width: 100%;
   height: 45px;
   font-size: medium;
   transition: all 100ms ease-in;
   background-color: transparent;
+  font-weight: 600;
 }
 
 .navitem:hover {
   font-size: large;
-  color: #199607;
+  color: #5ac994;
 }
 
 .navitem > span {

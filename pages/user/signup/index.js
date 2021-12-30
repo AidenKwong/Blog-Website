@@ -55,7 +55,7 @@ export default function index() {
             <div className={styles.description}>
               Congratulation! You have successfully signed up. Log in now to
               publish your first post.
-              <div>
+              <div className={styles.description}>
                 <Link href="/">Back to home page</Link>
               </div>
             </div>

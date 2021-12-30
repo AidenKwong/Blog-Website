@@ -17,25 +17,25 @@ export default function Navbar({ navbar, setNavbar }) {
         <Link href="/main">
           <div className={styles.navitem}>
             <IoMdHome style={{ fontSize: "xx-large" }} />
-            <span>Home</span>
+            Home
           </div>
         </Link>
         <Link href="/following">
           <div className={styles.navitem}>
             <IoMdPeople style={{ fontSize: "xx-large" }} />
-            <span>Following</span>
+            Following
           </div>
         </Link>
         <Link href="/lastest">
           <div className={styles.navitem}>
             <IoIosChatboxes style={{ fontSize: "xx-large" }} />
-            <span>Lastest</span>
+            Lastest
           </div>
         </Link>
         <Link href="/trending">
           <div className={styles.navitem}>
             <IoMdFlame style={{ fontSize: "xx-large" }} />
-            <span>Trending</span>
+            Trending
           </div>
         </Link>
       </div>

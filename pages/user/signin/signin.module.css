@@ -10,14 +10,16 @@
   gap: 3em;
   flex-direction: column;
   width: 30em;
+  color: #124143;
   background-color: white;
-  border-radius: 2em;
-  box-shadow: 0 0 2em rgb(25, 100, 7, 0.5);
+  border-radius: 0.75em;
+  box-shadow: 0 5px 2em #124143;
   padding: 2em;
   padding-bottom: 6em;
   align-items: center;
   overflow: hidden;
   animation: 1s ease-out 0s 1 slideInFromLeft;
+  margin: 0.5rem;
 }
 
 .page {
@@ -26,11 +28,10 @@
   align-items: center;
   gap: 2em;
   animation: 1s ease-out 0s 1 slideInFromLeft;
-  height: 20em;
 }
 
 .title {
-  font-size: 1.75rem;
+  font-size: 2rem;
   font-weight: 600;
 }
 
@@ -46,16 +47,15 @@
 .instruction {
   font-size: 1.25rem;
   font-weight: 600;
-
   display: flex;
   text-align: center;
 }
 
 .inputField {
   height: 2.5em;
-  border: 2px solid rgb(25, 150, 7);
-  border-radius: 1em;
-  background-color: #f1ffef;
+  border: 0.2em solid #124143;
+  border-radius: 0.5em;
+  background-color: #c0f7b7;
   width: 100%;
   font-size: 1.25em;
   font-weight: 600;
@@ -81,19 +81,21 @@
   height: 2.5em;
   width: 6em;
   text-align: center;
-  color: rgb(25, 150, 7);
   opacity: 80%;
-  border: 2px solid rgb(25, 150, 7);
-  border-radius: 1em;
-  background-color: #f1ffef;
+  border: none;
+  border-radius: 0.5em;
+  color: #124143;
+  background-color: #5ac994;
   cursor: pointer;
   font-size: 1em;
   font-weight: 600;
   user-select: none;
+  transition: 200ms ease-in-out;
 }
 
 .button:hover:enabled {
-  background-color: #bfffb6;
+  background-color: #124143;
+  color: #5ac994;
 }
 
 .confirmButton {
@@ -102,6 +104,7 @@
 
 .buttonContainer {
   display: flex;
+  align-items: center;
   width: 100%;
 }
 
@@ -111,7 +114,7 @@
 }
 
 .link {
-  color: #199607;
+  color: #5ac994;
   font-weight: 600;
   cursor: pointer;
 }
@@ -120,10 +123,15 @@
   display: flex;
   flex-direction: column;
   gap: 2em;
-  min-height: 12em;
 }
 
 .invalid {
   text-align: center;
   color: rgb(233, 20, 20);
+}
+
+.demoSignIn {
+  margin-left: auto;
+  border: none;
+  cursor: pointer;
 }

@@ -35,7 +35,9 @@ export default function Topbar({
         <div className={styles.logo}>
           <Image src={websitelogo} width={40} height={40} quality={100} />
         </div>
+        <div className={styles.websiteName}>Opinet</div>
       </div>
+
       <div className={styles.searchbox}>
         <input className={styles.searchbar} placeholder="Search"></input>
         <button className={styles.searchbutton}>
@@ -49,7 +51,7 @@ export default function Topbar({
             <IoMdCreate />
           </div>
         </Link>
-        <Link href="/user/publish">
+        <Link href="#">
           <div className={styles.othersItem}>
             <IoMdNotifications />
           </div>
@@ -66,7 +68,7 @@ export default function Topbar({
           <IoMdPerson />
         </div>
 
-        <Link href="/user/publish">
+        <Link href="#">
           <div className={styles.othersItem}>
             <IoMdSettings />
           </div>

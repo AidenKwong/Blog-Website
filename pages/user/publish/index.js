@@ -104,7 +104,7 @@ export default function Publish() {
   };
 
   return (
-    <div>
+    <div className={styles.main}>
       <div className={styles.header}>
         <div className={styles.logobox}>
           <Link href="/">

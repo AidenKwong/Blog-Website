@@ -1,15 +1,25 @@
+.main {
+  margin-top: 1em;
+  display: flex;
+  flex-direction: column;
+  gap: 1em;
+  max-width: 100rem;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0px 5px 1em #124143;
+  padding: 1em;
+}
+
 .header {
-  justify-content: space-between;
+  padding-left: 1em;
   align-items: center;
   display: flex;
   background-color: white;
-  border-bottom: 1px solid rgb(200, 200, 200);
-  padding: 8px;
-  padding-left: 20px;
-  padding-right: 20px;
-  height: 60px;
-  font-size: xx-large;
+  border: none;
+  height: 4rem;
+  font-size: 3rem;
   font-weight: 600;
+  color: #124143;
 }
 
 .logobox {
@@ -40,11 +50,12 @@
 
 .lowerDiv {
   display: flex;
+  background-color: #c0f7b7;
 }
 
 .mainDiv {
   width: 100%;
-  height: calc(100vh - 60px);
+
   display: flex;
   padding: 14px;
   justify-content: center;
@@ -62,7 +73,7 @@
   color: #124143;
   max-width: 100%;
   background-color: white;
-  box-shadow: 0px 5px 1em #124143;
+
   border-radius: 1em;
   padding: 1rem;
   font-size: medium;
@@ -110,21 +121,20 @@
   margin-left: 1rem;
   outline: 0;
   border: 0.2em solid #124143;
+  border-radius: 0.5rem;
   height: 2rem;
   font-size: medium;
   background-color: rgb(245, 245, 245);
 }
 
 .selectFile {
-  height: auto;
-  padding: 3rem 3rem 5rem 3rem;
-  width: 40%;
+  height: 10rem;
+  width: 35%;
   outline: 0;
   border: 0.2em dashed #124143;
+  border-radius: 0.5rem;
   background-color: #e3ffdf;
-  margin: 0 0.5rem 0 0.5rem;
   font-size: medium;
-
   text-align: center;
   caret-color: transparent;
 }
@@ -137,6 +147,7 @@
   margin-left: 1rem;
   outline: 0;
   border: 0.2em solid #124143;
+  border-radius: 0.5rem;
   height: 2rem;
   font-size: medium;
   background-color: rgb(245, 245, 245);
@@ -151,6 +162,7 @@
   font-size: medium;
   resize: none;
   margin-bottom: 1rem;
+  border-radius: 0.5rem;
 }
 
 .publish {
@@ -199,6 +211,9 @@
 }
 
 @media only screen and (max-width: 400px) {
+  .header {
+    font-size: 2rem;
+  }
   .postFormItem {
     gap: 0.25em;
   }

@@ -12,7 +12,7 @@ export default function Navbar({ navbar, setNavbar }) {
   if (navbar === false) return null;
 
   return (
-    <button className={styles.navbar}>
+    <div className={styles.navbar}>
       <div className={styles.section1}>
         <Link href="/main">
           <div className={styles.navitem}>
@@ -151,6 +151,6 @@ export default function Navbar({ navbar, setNavbar }) {
           </Link>
         </div>
       </div>
-    </button>
+    </div>
   );
 }

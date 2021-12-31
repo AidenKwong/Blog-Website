@@ -64,7 +64,11 @@ export default function PostGrid({ posts, setPage, loading }) {
             );
           }
         })}
-        {loading && <div className={styles.loading}>Loading...</div>}
+        {loading && (
+          <div className={styles.loadingContainer}>
+            <div className={styles.loading}>Loading...</div>
+          </div>
+        )}
       </div>
     </div>
   );

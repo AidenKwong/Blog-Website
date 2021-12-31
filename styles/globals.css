@@ -3,6 +3,7 @@ body {
   padding: 0;
   margin: 0;
   background-color: rgb(225, 255, 226);
+  overflow-x: hidden;
 }
 
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@500&family=Readex+Pro&display=swap");
